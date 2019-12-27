@@ -1,0 +1,6 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var scriptElement = document.createElement("script");
+scriptElement.type = "text/javascript";
+scriptElement.src = "//www.everestjs.net/static/amo-conversion-mapper.js";
+document.body.appendChild(scriptElement);
+});

@@ -1,0 +1,118 @@
+var mapNum;
+switch (_satellite.getVar("member: sub segment").toUpperCase()) {
+  case "DE_CREDIT_AL":
+    mapNum = 1;
+    break;
+  case "ANON":
+    mapNum = 2;
+    break;
+  case "DE_TRIAL_AL":
+    mapNum = 3;
+    break;
+  case "DE_REG_NO_BUY":
+    mapNum = 4;
+    break;
+  case "DE_FORMER_CREDIT_AL":
+    mapNum = 5;
+    break;
+  case "None":
+    mapNum = 6;
+    break;
+  case "DE_ALC":
+   mapNum = 7;
+    break;
+  case "DE_FORMER_TRIAL_AL":
+    mapNum = 8;
+    break;
+  case "DE_GIFT_MEMBER":
+    mapNum = 9;
+    break;
+  case "CREDIT_AL":
+    mapNum = 10;
+    break;
+  case "DE_FREEBIE_BUY":
+    mapNum = 11;
+    break;
+  case "DE_NON_CREDIT_AL":
+    mapNum = 12;
+    break;
+  case "FORMER_CREDIT_AL":
+    mapNum = 13;
+    break;
+  case "DE_FORMER_GIFT_MEMBER":
+    mapNum = 14;
+    break;
+  case "TRIAL_AL":
+    mapNum = 15;
+    break;
+  case "ALC":
+    mapNum = 16;
+    break;
+  case "REG_NO_BUY":
+    mapNum = 17;
+    break;
+  case "DE_FORMER_NON_CREDIT_AL":
+    mapNum = 18;
+    break;
+  case "FREEBIE_BUY":
+    mapNum = 19;
+    break;
+  case "GIFT_MEMBER":
+    mapNum = 20;
+    break;
+  case "FORMER_GIFT_MEMBER":
+    mapNum = 21;
+    break;
+  case "NONCREDIT_AL":
+    mapNum = 22;
+    break;
+  case "FORMER_NONCREDIT_AL":
+    mapNum = 23;
+    break;
+  default:
+    mapNum = "not-found";
+}
+
+var custom_conversion_id = "951538458";
+var custom_conversion_id_2 = "1064336533";
+var param_conversion_label = "";
+var param_conversion_value = "";
+ 
+// Start name and value options
+var param_name_1 = "ecomm_prodid";
+var param_value_1 = _satellite.getVar("product: product ID");
+var param_name_2 = "ecomm_pagetype";
+var param_value_2 = _satellite.getVar("content: pageType");
+var param_name_3 = "ecomm_totalvalue";
+var param_value_3 = _satellite.getVar("purchase: revenue");
+var param_name_4 = "Customer_Type";
+var param_value_4 = mapNum;
+ 
+local_conversion_label = '';
+if (param_conversion_label) {
+  local_conversion_label = '&label=' + param_conversion_label;
+}
+ 
+if (typeof(param_conversion_value) === 'undefined' || param_conversion_value === '') {
+  param_conversion_value = 0;
+}
+ 
+var local_array_name = [param_name_1, param_name_2, param_name_3, param_name_4];
+ 
+var local_array_value = [param_value_1, param_value_2, param_value_3, param_value_4];
+ 
+var local_part = '';
+for (var i = 0; i < local_array_name.length; i++) {
+  if (local_array_name[i] && local_array_value[i]) {
+    local_part += ';' + local_array_name[i] + '=' + local_array_value[i];
+  }
+}
+local_part = local_part.substring(1);
+ 
+var local_google_tag_params = encodeURIComponent(local_part);
+ 
+var local_img_url = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'googleads.g.doubleclick.net/pagead/viewthroughconversion/' + custom_conversion_id + '/?value=' + param_conversion_value + local_conversion_label + '&guid=ON&script=0&data=' + local_google_tag_params;
+DTM.imageRequest(local_img_url);
+ 
+var local_img_url_2 = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'googleads.g.doubleclick.net/pagead/viewthroughconversion/' + custom_conversion_id_2 + '/?value=' + param_conversion_value + local_conversion_label + '&guid=ON&script=0&data=' + local_google_tag_params;
+DTM.imageRequest(local_img_url_2);

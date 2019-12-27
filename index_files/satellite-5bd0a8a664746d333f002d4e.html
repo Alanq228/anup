@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0189)https://images-na.ssl-images-amazon.com/images/S/audible-seo-analytics-satellitescripts/2019-12-17-1/843e2f5b8ab495a5f828c0b9302ff13fbaff1d33/scripts/satellite-5bd0a8a664746d333f002d4e.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<script async=\"async\" src=//consent.trustarc.com/notice?domain=audible.com&c=teconsent&js=bb&noticeType=bb&text=true&gtm=1&cdn=1 crossorigin=\"\"></scr"+"ipt>\n";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><script async="async" src="./notice(1)" crossorigin="" id="truste_0.5766354890866707"></script>
+
+  
+
+<script async="async" type="text/javascript" crossorigin="" src="./v1(1).7-220"></script></body></html>

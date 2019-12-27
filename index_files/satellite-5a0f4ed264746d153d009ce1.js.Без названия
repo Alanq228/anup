@@ -1,0 +1,4 @@
+var scriptElement = document.createElement("script");
+	scriptElement.type = "text/javascript";
+	scriptElement.src = "//akt.audiencemanager.de/log/ad/conversion?type=js&sec=bac9d400eaf64dbb1352b2a9fa22621a&advertiserId=591043cdeb0a1950710033b2&pid=59105120eb0a1973d63df982&order_id=" + _satellite.getVar('tm: orderReference') + "&cur=EUR"
+document.body.appendChild(scriptElement);

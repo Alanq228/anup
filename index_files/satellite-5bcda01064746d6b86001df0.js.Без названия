@@ -1,0 +1,18 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'u1': _satellite.getVar('product: productName'),
+    'u2': _satellite.getVar('product: product ID'),
+    'u3': _satellite.getVar('tm: isFreeTrial'),
+    'u4': _satellite.getVar('tm: pageURL'),
+    'u5': _satellite.getVar('tm: isExistingMember'),
+    'u6': _satellite.getVar('surface'),
+    'u7': _satellite.getVar('member: sub segment'),
+    'u8': _satellite.getVar('tm: productPrice'),
+    'u16': _satellite.getVar('tm: categoryId'),
+    'u17': _satellite.getVar('content: category'),
+    'u19': _satellite.getVar('member: segment'),
+    'u21': _satellite.getVar('tm: action_code'),
+    'send_to': 'DC-8360274/deco/001uni+standard'
+});
+});

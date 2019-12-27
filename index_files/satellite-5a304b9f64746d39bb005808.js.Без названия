@@ -1,0 +1,15 @@
+/* Rule Id: 1778409 */
+var custom_cus_quantcast_id = 'p-PQChpz46f5d9p';
+var param_order_id = '';
+var param_revenue = '';
+
+window.ezt = window.ezt || [];
+
+ezt.push({
+    qacct: custom_cus_quantcast_id,
+    orderid: (param_order_id ? param_order_id : ''),
+    revenue: (param_revenue ? param_revenue : '')
+});
+
+var local_scr_url = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=" + custom_cus_quantcast_id;
+DTM.addScript(local_scr_url);
